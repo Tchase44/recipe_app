@@ -1,0 +1,36 @@
+export default {
+  units:[
+    "whole",
+    "halve(s)",
+    "can",
+    "mL",
+    "L",
+    "kL",
+    "mg",
+    "g",
+    "kg",
+    "fl oz",
+    "Cup(s)",
+    "pt (pints)",
+    "qt (quarts)",
+    "gal",
+    "tsp (teaspoon)",
+    "tbsp (tablespoon)",
+    "oz",
+    "lbs",
+    "pinch of",
+    "drop(s)",
+    "mounded scoop(s) of",
+    "fist full of",
+  ],
+  fractions:[
+    "1/8",
+    "1/4",
+    "1/3",
+    "1/2",
+    "5/8",
+    "2/3",
+    "7/8",
+    "3/4"
+  ]
+}

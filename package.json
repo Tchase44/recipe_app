@@ -1,0 +1,13 @@
+{
+  "name": "tims-recipe-app",
+  "license": "MIT",
+  "engines": {
+    "node": "14.16.1",
+    "yarn": "1.22.10"
+  },
+  "scripts": {
+    "build": "yarn --cwd ./vue/yarn install && yarn --cwd ./vue/yarn build",
+    "deploy": "cp -a vue/dist/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  }
+}
