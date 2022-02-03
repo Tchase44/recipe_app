@@ -1,5 +1,5 @@
-web: cd api/ && bundle exec rails s
-release: cd api/ && bin/rake db:migrate
+web: bundle exec rails s
+release: rails db:migrate
 
 #Add buildpacks
 #On the command line,
