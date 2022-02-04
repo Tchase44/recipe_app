@@ -1,4 +1,4 @@
-web: bundle exec rails s
+web: rails s
 release: rails db:migrate
 
 #Add buildpacks
