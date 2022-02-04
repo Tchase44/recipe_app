@@ -16,9 +16,9 @@ import App from './App.vue'
   // );
 
 // Vue.use(config)
-
-
+// console.log(process.env)
 Vue.config.productionTip = false
+
 Vue.use(axios)
 // Vue.use(createProxy)
 new Vue({
