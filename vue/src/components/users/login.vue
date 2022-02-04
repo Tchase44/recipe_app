@@ -1,6 +1,6 @@
 <template>
   <div class="login" id="login">
-    <h3>Dont have an account? <router-link to="/sign_up">Sign Up?</router-link></h3>
+    <!-- <h3>Dont have an account? <router-link to="/sign_up">Sign Up?</router-link></h3> -->
     <div class="error"><p>{{error_message}}</p></div>
     <form action="" @submit="login">
       <label for="email">Username or Email</label><br>
