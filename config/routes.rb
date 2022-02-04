@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get "/recipes", to: "recipes#index", default: {format: :json}
   get "/recipes/:slug", to: "recipes#show", default: {format: :json}
-  resources :recipes, only:[:index, :update, :destroy] do
+  resources :recipes, only:[:index, :create, :update, :destroy] do
     resources :ingredients
   end
 

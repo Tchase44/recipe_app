@@ -5,7 +5,7 @@
       <span class="amount">{{item.amount}} </span>
       <span class="item">{{item.name}}</span>
       <span class="tip">{{item.tip}}</span>
-      <span v-if="level_check() === 1" @click="flip" class="edit-icon">&#x270E;</span>
+      <span v-if="level_check()" @click="flip" class="edit-icon">&#x270E;</span>
     </div>
     <div v-else>
       <Form :ingredient="item" :create="false"/>

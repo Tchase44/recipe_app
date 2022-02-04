@@ -6,7 +6,7 @@
 
 
       <label for="amount" class="amount">Amount:</label>
-      <input type="text" name="amount_value" id="amount_value" class="amount_value" placeholder="Must be Number or accepted fraction" v-model="value" >
+      <input type="text" name="amount_value" id="amount_value" class="amount_value" v-model="value" >
       <select name="amount_units" id="amount_units" v-model="unit">
         <option disabled value="">Please select one</option>
         <option v-for="u in units" :value="u" v-bind:key="u">{{u}}</option>
@@ -51,14 +51,17 @@ export default {
   name: "Form",
   props:{
     ingredient: Object,
-    create: Boolean
+    create: Boolean,
+    recipeId: Number,
   },
   data(){
     return{
       units: measure.units,
       unit: this.splitter(this.$props.ingredient.amount).u,
       value: this.splitter(this.$props.ingredient.amount).a,
-      updates: {...this.$props.ingredient},//<- clone the obj to prevent mutation
+      updates: {
+        ...this.$props.ingredient,
+        recipe_id: this.$props.recipeId},//<- clone the obj to prevent mutation
       msg: null
     }
   },
