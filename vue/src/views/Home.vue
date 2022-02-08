@@ -13,6 +13,10 @@ export default {
   name: 'Home',
   components: {
     RecipeIndex
-  }
+  },
 }
 </script>
+
+<style scoped>
+
+</style>

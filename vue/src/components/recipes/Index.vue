@@ -4,7 +4,7 @@
     <h3 v-on:click="getRecipes" class="reload">Reload Recipes</h3>
 
     <div class="recipe-list" v-if="recipes.length > 0">
-      <div class="card" v-for="r in recipes" v-bind:key="r.id">
+      <div class="card" @click="navigate(r.slug)" v-for="r in recipes" v-bind:key="r.id">
         <router-link :to="'/recipe/'+r.slug" v-bind:name="r.id">
         <!-- title -->
         <h3>{{r.title}}</h3>
@@ -49,6 +49,9 @@ export default {
     },
     getFromStore(){
       this.recipes = this.$store.getters.getAllRecipes
+    },
+    navigate(slug){
+      this.$router.push(`/recipe/${slug}`);
     }
   },
   mounted(){
@@ -80,10 +83,12 @@ div.recipe-list {
   min-width: 385px;
   width: 89%;
   max-width: 477px;
+  height:150px;
   padding: 9px;
   margin: 22px auto;
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   transition:all 0.3s ease;
+  cursor: pointer;
 }
 div.card:hover{
   opacity: 1;

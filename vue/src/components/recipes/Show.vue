@@ -1,5 +1,6 @@
 <template>
   <div class="recipe">
+    <router-link :to="'/'" v-bind:name="recipe.id">Back</router-link>
     <h3 v-if="recipe">{{recipe.title}}</h3>
     <div class="ingredient-list" v-if="recipe">
       <ul v-if="recipe.ingredients">
