@@ -68,12 +68,18 @@ export default {
 h3.reload {
   cursor: pointer;
 }
+div.recipe-list {
+  display: grid;
+  grid-template-columns: 1fr 500px 1fr;
+}
 .card{
   display: inline-block;
   box-sizing: border-box;
   /* opacity: 0.75; */
   /* background-color: #efefef; */
+  min-width: 385px;
   width: 89%;
+  max-width: 477px;
   padding: 9px;
   margin: 22px auto;
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
@@ -88,5 +94,19 @@ div.card:hover{
 .card * {
   text-decoration: none;
   /* color: #2c3e50; */
+}
+
+@media only screen and (max-width: 1200px) {
+  div.recipe-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  div.recipe-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

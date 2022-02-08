@@ -50,6 +50,9 @@ export default {
 </script>
 
 <style>
+div#app {
+  min-width: 460px;
+}
 div#app *{
   --green-color: #3bbd58;
   --black-color: #292929;
