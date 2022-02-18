@@ -7,7 +7,7 @@
       <router-link v-if="loggedIN" class="nav-item" to="/my_account">Account</router-link> |
       <router-link class="nav-item" to="/about">About</router-link> |
       <router-link class="nav-item" to="/">Home</router-link> |
-      <router-link v-if="loggedIN && level < 3" class="nav-item" to="/recipe/new">Add Recipe</router-link>
+      <router-link v-if="loggedIN && userLevel < 3" class="nav-item" to="/recipe/new">Add Recipe</router-link>
     </div>
 
     <main>
@@ -20,7 +20,7 @@
 
 <script>
 import Footer from "./components/footer"
-import userService from "./services/userApi"
+// import userService from "./services/userApi"
 export default {
   components:{
     Footer
@@ -31,20 +31,18 @@ export default {
     }
   },
   methods:{
-    async userlevel(){
-      let l = await userService.getMyUsername();
-      this.level = l.level
-    }
   },
   mounted(){
-    if(this.$store.getters.isLoggedIn){
-      this.userlevel()
-    }
+
   },
   computed:{
     loggedIN(){
+      // console.log(this.$store.getters.isLoggedIn)
       return this.$store.getters.isLoggedIn
     },
+    userLevel(){
+      return this.$store.getters.getUserLevel
+    }
   }
 }
 </script>

@@ -32,6 +32,12 @@ export default {
       if(token.auth_token){
         sessionStorage.setItem("auth_token", token.auth_token)
         this.$store.commit('logIn',token.auth_token)
+
+        let l = atob(token.auth_token.split(".")[1])
+        l = JSON.parse(l)
+        l = l.level
+
+        this.$store.commit('setUserLevel',l)
         this.$router.push('/')
       }else{
         this.error_message = "Invalid Username/Password"

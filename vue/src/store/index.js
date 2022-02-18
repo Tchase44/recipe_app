@@ -8,7 +8,8 @@ export default new Vuex.Store({
     logged_in: sessionStorage.getItem('auth_token') ? true : false,
     user_token: sessionStorage.getItem('auth_token') || null,
     recipes: [],
-    numRecipes: 0
+    numRecipes: 0,
+    user_level: 3
   },
   getters:{
     getAllRecipes: state => {
@@ -36,6 +37,13 @@ export default new Vuex.Store({
       }else{
         return null
       }
+    },
+    getUserLevel:(state) => {
+      if(state.logged_in && state.user_token){
+        return state.user_level
+      }else{
+        return 3
+      }
     }
   },
   mutations: {
@@ -50,12 +58,20 @@ export default new Vuex.Store({
     logOut: (state)=>{
       state.logged_in = false
       state.user_token = null
+      state.user_level = null
       sessionStorage.clear()
     },
     logIn:(state, token) => {
       sessionStorage.setItem('auth_token',token)
       state.logged_in = true
       state.user_token = token
+    },
+    setUserLevel:(state, level) => {
+      if (level >0 && level <=3){
+        state.user_level = level
+      }else{
+        state.user_level = 3
+      }
     }
   },
   actions: {
