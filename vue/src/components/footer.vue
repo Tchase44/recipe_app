@@ -17,16 +17,16 @@ export default {
 
 <style scoped>
 #footer.footer{
-  margin:0;
-  padding:0;
-  width:100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
   height: 105px;
   background: #424242;
 }
 #footer > div {
   height: 100%;
-width: 100%;
-padding: 22px 0;
+  width: 100%;
+  padding: 22px 0;
 }
 #footer > div > h6#copy{
   color: #3bbd58;

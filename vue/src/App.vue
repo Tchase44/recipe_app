@@ -1,7 +1,17 @@
 <template>
   <div id="app">
     <!-- This is the Root componet -->
-    <div v-if="!loggedIN" id="logs"><router-link to="/login">login</router-link></div>
+    <div v-if="!loggedIN" id="logs">
+      <router-link to="/login">login</router-link>
+    </div>
+    <div id="burger-box" @click="hideShow">
+      <svg viewBox="0 0 100 80" width="40" height="40">
+        <rect width="100" height="20"></rect>
+        <rect y="30" width="100" height="20"></rect>
+        <rect y="60" width="100" height="20"></rect>
+      </svg>
+      <Burger v-if="burgerToggle" :loggedIn="loggedIN" :userLevel="userLevel" />
+    </div>
     <!-- <div v-if="!loggedIN" id="logs"><router-link to="/login">log Out</router-link></div> -->
     <div id="nav" class="navbar">
       <router-link v-if="loggedIN" class="nav-item" to="/my_account">Account</router-link> |
@@ -19,18 +29,23 @@
 </template>
 
 <script>
+import Burger from './components/burger.vue'
 import Footer from "./components/footer"
 // import userService from "./services/userApi"
 export default {
   components:{
-    Footer
+    Footer,
+    Burger,
   },
   data(){
     return {
-      level: 3
+      burgerToggle: false
     }
   },
   methods:{
+    hideShow(){
+      this.burgerToggle = !this.burgerToggle
+    }
   },
   mounted(){
 
@@ -49,7 +64,7 @@ export default {
 
 <style>
 div#app {
-  min-width: 460px;
+  min-width: 350px;
 }
 div#app *{
   --green-color: #3bbd58;
@@ -109,5 +124,23 @@ h1{
 }
 #logs a {
   color: #3bbd58;
+}
+#burger-box{
+  background: var(--green-color);
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 460px) {
+  #burger-box{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #nav{
+    display: none;
+  }
 }
 </style>

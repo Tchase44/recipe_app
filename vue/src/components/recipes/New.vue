@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h2>Create a New Recipe</h2>
+    <p>Once you create the title, description, and directions you will be able to add ingredients.</p>
     <div class="message-box">
       <h4 class="error" v-if="errors">{{errors}}</h4>
       <h4 class="success" v-if="success">{{success}}</h4>
@@ -10,8 +12,8 @@
       <label for="title">Title</label><br>
       <input type="text" name="title" id="title" v-model="recipeObj.title" required><br>
 
-      <label for="slug">Slug</label><br>
-      <span>URL: /recipe/{{paramiterize(recipeObj.title)}}</span><br>
+      <!-- <label for="slug">Slug</label><br>
+      <span>URL: /recipe/{{paramiterize(recipeObj.title)}}</span><br> -->
 
       <label for="description">Description</label><br>
       <input type="text" name="description" id="description" v-model="recipeObj.description"><br>

@@ -1,8 +1,5 @@
 export default {
   units:[
-    "whole",
-    "halve(s)",
-    "can",
     "mL",
     "L",
     "kL",
@@ -22,6 +19,11 @@ export default {
     "drop(s)",
     "mounded scoop(s) of",
     "fist full of",
+    "whole",
+    "half",
+    "halves",
+    "can",
+    "bottle",
   ],
   fractions:[
     "1/8",

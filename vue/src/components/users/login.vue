@@ -13,7 +13,9 @@
 </template>
 
 <script>
+import axios from '../../axios'
 import userAPI from '../../services/userApi.js'
+
 export default {
   name: "Login",
   data(){
@@ -32,12 +34,10 @@ export default {
       if(token.auth_token){
         sessionStorage.setItem("auth_token", token.auth_token)
         this.$store.commit('logIn',token.auth_token)
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token.auth_token}`;
+        let u = await userAPI.getMyUsername()
 
-        let l = atob(token.auth_token.split(".")[1])
-        l = JSON.parse(l)
-        l = l.level
-
-        this.$store.commit('setUserLevel',l)
+        this.$store.commit('setUserLevel', u.level)
         this.$router.push('/')
       }else{
         this.error_message = "Invalid Username/Password"

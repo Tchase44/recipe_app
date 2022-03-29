@@ -1,7 +1,8 @@
 <template>
   <li v-bind:key="item.id" class="item-li">
     <!-- Show -->
-    <div v-if="show" class="item-div">
+    <div v-if="show" :class="'item-div item-' + item.id">
+      <input type="checkbox" class="checkbox" :value="item.id" @click="strike($event)"/>
       <span class="amount">{{item.amount}} </span>
       <span class="item">{{item.name}}</span>
       <span class="tip">{{item.tip}}</span>
@@ -35,7 +36,7 @@ export default {
   },
   data(){
     return {
-      show: true
+      show: true,
     }
   },
   methods:{
@@ -58,6 +59,10 @@ export default {
       } else {
         return false
       }
+    },
+    strike(event){
+      let el = document.getElementsByClassName(`item-${event.target.value}`)[0]
+      el.classList.toggle('strike')
     }
   },
 }
@@ -73,6 +78,9 @@ export default {
   box-sizing: border-box;
   width:45%;
   height: 30px;
+}
+.amount {
+  margin-left: 10px;
 }
 .trash{
   margin: 0;
@@ -95,5 +103,12 @@ export default {
 }
 .item-li:hover{
   border-bottom: 1px dotted #000;
+}
+.checkbox {
+  width: 15px;
+  height: 15px;
+}
+.strike {
+  text-decoration: line-through;
 }
 </style>
