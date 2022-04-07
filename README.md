@@ -19,6 +19,30 @@ $ bin/rails db:create db:migrate db:seed
 ```
 $ bin/rails s
 ```
+# vue front-end
+``` cd vue ```
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Icons
+[MIT Free Icons](https://github.com/refactoringui/heroicons/tree/master/src/outline-md)
+
+
 
 * Configuration
 

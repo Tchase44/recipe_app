@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   # Validates the token and user and sets the @current_user scope
   def authenticate_request!
     puts "--------------------"
+    puts payload if payload
     puts JsonWebToken.valid_payload(payload.first) if payload
     puts "--------------------"
     if !payload || !JsonWebToken.valid_payload(payload.first)
@@ -31,6 +32,7 @@ class ApplicationController < ActionController::API
   def payload
     auth_header = request.headers['Authorization']
     token = auth_header.split(' ').last
+    puts token if auth_header
     JsonWebToken.decode(token)
   rescue
     nil
