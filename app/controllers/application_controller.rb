@@ -32,7 +32,6 @@ class ApplicationController < ActionController::API
   def payload
     auth_header = request.headers['Authorization']
     token = auth_header.split(' ').last
-    puts token if auth_header
     JsonWebToken.decode(token)
   rescue
     nil
