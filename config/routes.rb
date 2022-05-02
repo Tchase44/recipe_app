@@ -41,5 +41,5 @@ Rails.application.routes.draw do
     delete "/admin/:id", to: "admin#destroy", default: {format: :json}
   end
 
-  root to: "/"
+  # root to: "/"
 end
