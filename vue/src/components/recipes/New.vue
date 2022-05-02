@@ -63,7 +63,7 @@ export default {
           this.success = "Successfully Created!"
           this.recipeObj = post
           window.setTimeout(() => {
-            this.$router.push(`/recipe/${post.slug}`)
+            this.$router.push(`/recipes/${post.slug}`)
           }, 1000);
         }
       }else{

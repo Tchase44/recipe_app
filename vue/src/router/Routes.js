@@ -23,7 +23,7 @@ export default [
     component: Home
   },
   {
-    path: '/recipe/:slug',
+    path: '/recipes/:slug',
     props: true,
     name: 'Show',
     component: Show

@@ -20,7 +20,7 @@
     <div v-if="recipe" class="tips-box">
       {{recipe.tips}}
     </div>
-    <router-link v-if="recipe && level_check()" :to="'/recipe/'+recipe.slug+'/edit'"  v-model="recipe.editURL">
+    <router-link v-if="recipe && level_check()" :to="'/recipes/'+recipe.slug+'/edit'"  v-model="recipe.editURL">
       Edit Recipe
     </router-link>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div id="update-recipe">
     <nav v-if="recipeObj">
-      <router-link :to="'/recipe/'+recipeObj.slug" v-if="recipeObj">Back</router-link>
+      <router-link :to="'/recipes/'+recipeObj.slug" v-if="recipeObj">Back</router-link>
     </nav>
     <div class="message-box">
       <h4 class="error" v-if="error">{{error}}</h4>
@@ -74,7 +74,7 @@ export default {
         }else{
           this.success = "Successfully Updated!"
           window.setTimeout(() => {
-            this.$router.push(`/recipe/${updates.slug}`)
+            this.$router.push(`/recipes/${updates.slug}`)
           }, 1000);
         }
       }else{

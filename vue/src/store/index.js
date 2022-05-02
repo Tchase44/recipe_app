@@ -67,7 +67,7 @@ export default new Vuex.Store({
       state.user_token = token
     },
     setUserLevel:(state, level) => {
-      if (level >0 && level <=3){
+      if (level > 0 && level <= 3){
         state.user_level = level
       }else{
         state.user_level = 3

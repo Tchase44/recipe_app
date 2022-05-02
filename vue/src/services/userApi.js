@@ -50,6 +50,7 @@ export default {
     })
   },
   getMyUsername: () => {
+    console.log(axios.defaults.headers.common)
     return axios.get(
       `/user/username`
     ).then( data => {

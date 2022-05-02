@@ -5,7 +5,7 @@
 
     <div class="recipe-list" v-if="recipes.length > 0">
       <div class="card" @click="navigate(r.slug)" v-for="r in recipes" v-bind:key="r.id">
-        <router-link :to="'/recipe/'+r.slug" v-bind:name="r.id">
+        <router-link :to="'/recipes/'+r.slug" v-bind:name="r.id">
         <!-- title -->
         <h3>{{r.title}}</h3>
         <p>{{r.description}}</p>
@@ -51,7 +51,7 @@ export default {
       this.recipes = this.$store.getters.getAllRecipes
     },
     navigate(slug){
-      this.$router.push(`/recipe/${slug}`);
+      this.$router.push(`/recipes/${slug}`);
     }
   },
   mounted(){

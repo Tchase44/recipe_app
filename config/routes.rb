@@ -40,5 +40,6 @@ Rails.application.routes.draw do
     get "/admin", to: "admin#index", default: {format: :json}
     delete "/admin/:id", to: "admin#destroy", default: {format: :json}
   end
-  # root to: "home#index"
+
+  root to: "/"
 end
