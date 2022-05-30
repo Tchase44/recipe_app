@@ -6,9 +6,9 @@
 
 
       <label for="amount" class="amount">Amount:</label>
-      <input type="text" name="amount_value" id="amount_value" class="amount_value" v-model="value" >
-      <select name="amount_units" id="amount_units" v-model="unit">
-        <option disabled value="">Please select one</option>
+      <input type="text" name="amount_value" id="amount_value" class="amount_value" v-model="value" placeholder="Numbers go here">
+      <select name="amount_units" id="amount_units" v-model="unit" aria-placeholder="Units of Measure">
+        <option disabled value="">Units of Measure</option>
         <option v-for="u in units" :value="u" v-bind:key="u">{{u}}</option>
       </select><br>
 
@@ -29,7 +29,7 @@
       <label for="amount" class="amount">Amount:</label>
       <input type="text" name="amount_value" id="amount_value" class="amount_value" placeholder="Must be Number or accepted fraction" v-model="value" >
       <select name="amount_units" id="amount_units" v-model="unit">
-        <option disabled value="">Please select one</option>
+        <option disabled selected value="">Units of Measure</option>
         <option v-for="u in units" :value="u" v-bind:key="u">{{u}}</option>
       </select>
 

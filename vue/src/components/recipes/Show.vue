@@ -10,7 +10,12 @@
     <div v-if="level_check()" class="i-box">
       <span class="point" @click="adding" v-if="add" > Cancle [-] </span>
       <span class="point" @click="adding" v-else > Add Ingredient [+]</span>
-      <IngredientForm v-if="add" :ingredient="blank" :recipeId="recipe.id" :create="true"/>
+      <IngredientForm
+        v-if="add"
+        :ingredient="blank"
+        :recipeId="recipe.id"
+        :create="true"
+      />
     </div>
     <Divider />
     <div v-if="recipe" class="direction-box">
@@ -47,7 +52,7 @@ components:{
       blank: {
         id: null,
         name: "",
-        amount: "0 mg",
+        amount: "",
         tip: "",
       }
     }

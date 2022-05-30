@@ -15,7 +15,7 @@ export default {
     "tbsp (tablespoon)",
     "oz",
     "lbs",
-    "pinch of",
+    "pinch(s) of",
     "drop(s)",
     "mounded scoop(s) of",
     "fist full of",

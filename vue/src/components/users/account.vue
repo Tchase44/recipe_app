@@ -1,8 +1,9 @@
 <template>
   <div id="account">
     <h3>{{account.username}}'s Account</h3>
+    <span>{{chef(account.level)}}</span>
     <!-- <Divider /> -->
-    <div @click="logout"><p>Log Out</p></div>
+    <div @click="logout"><button id="logout-btn">Log Out</button></div>
     <!-- <Divider /> -->
     <div class=message-con>
       <div v-if="m" class="message-box">
@@ -61,13 +62,28 @@ export default {
         id: null,
         current_password: null,
         new_password: null,
-        password_confirmation: null
+        password_confirmation: null,
+        level: this.$store.getters.getUserLevel,
       },
       m: null,
       e: null
     }
   },
   methods:{
+    chef(level){
+      if (level === 1) {
+        return "headchef"
+      }
+      else if (level === 2) {
+        return "souschef"
+      }
+      else if (level === 3) {
+        return "linecook"
+      }
+      else{
+        return "linecook"
+      }
+    },
     goHome(seconds){
       let s = seconds * 1000
       setTimeout(() => {
@@ -118,6 +134,7 @@ export default {
     async getUsername(){
       let res = await userAPI.getMyUsername()
       this.account.username = res.username
+      this.$store.commit("setUserLevel", res.level)
     },
     async updateUsername(e){
       e.preventDefault()
@@ -150,7 +167,7 @@ export default {
     this.getUsername()
     let id = this.$store.getters.getTokenData
     this.account.id = JSON.parse(atob(id)).user_id
-  }
+  },
 }
 </script>
 
@@ -158,6 +175,16 @@ export default {
   input,button {
     width: 320px;
     height: 2em;
+  }
+
+  #logout-btn {
+    background: var(--black-color);
+    color: var(--green-color);
+    margin: 15px 0 2px 0;
+  }
+  #logout-btn:hover {
+    color: var(--black-color);
+    background: var(--green-color);
   }
 
   form.passwords {

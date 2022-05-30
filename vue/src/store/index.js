@@ -21,24 +21,24 @@ export default new Vuex.Store({
     getNumRecipes: (state) => {
       return state.numRecipes
     },
-    isLoggedIn: ( state ) => {
+    isLoggedIn: (state) => {
       return state.logged_in
     },
-    getTokenData:(state) => {
+    getTokenData: (state) => {
       if(state.logged_in && state.user_token){
         return state.user_token.split(".")[1]
       }else{
         return null
       }
     },
-    token:(state) => {
+    token: (state) => {
       if(state.logged_in && state.user_token){
         return state.user_token
       }else{
         return null
       }
     },
-    getUserLevel:(state) => {
+    getUserLevel: (state) => {
       if(state.logged_in && state.user_token){
         return state.user_level
       }else{

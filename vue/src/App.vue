@@ -5,23 +5,31 @@
       <router-link to="/login">login</router-link>
     </div>
     <div id="burger-box" @click="hideShow">
-      <svg viewBox="0 0 100 80" width="40" height="40">
+      <svg v-if="!burgerToggle" viewBox="0 0 100 80" width="40" height="40">
         <rect width="100" height="20"></rect>
         <rect y="30" width="100" height="20"></rect>
         <rect y="60" width="100" height="20"></rect>
       </svg>
+      <span v-if="burgerToggle" id="close">X</span>
       <Burger v-if="burgerToggle" :loggedIn="loggedIN" :userLevel="userLevel" />
     </div>
     <!-- <div v-if="!loggedIN" id="logs"><router-link to="/login">log Out</router-link></div> -->
     <div id="nav" class="navbar">
-      <router-link v-if="loggedIN" class="nav-item" to="/my_account">Account</router-link> |
+      <router-link v-if="loggedIN" class="nav-item" to="/my_account">
+        Account
+      </router-link> |
       <router-link class="nav-item" to="/about">About</router-link> |
       <router-link class="nav-item" to="/">Home</router-link> |
-      <router-link v-if="loggedIN && userLevel < 3" class="nav-item" to="/recipe/new">Add Recipe</router-link>
+      <router-link
+        v-if="loggedIN && userLevel < 3"
+        class="nav-item"
+        to="/recipe/new"
+        >Add Recipe</router-link
+      >
     </div>
 
     <main>
-      <router-view/>
+      <router-view />
     </main>
 
     <Footer />
@@ -29,49 +37,47 @@
 </template>
 
 <script>
-import Burger from './components/burger.vue'
-import Footer from "./components/footer"
+import Burger from "./components/burger.vue";
+import Footer from "./components/footer";
 // import userService from "./services/userApi"
 export default {
-  components:{
+  components: {
     Footer,
     Burger,
   },
-  data(){
+  data() {
     return {
-      burgerToggle: false
-    }
+      burgerToggle: false,
+    };
   },
-  methods:{
-    hideShow(){
-      this.burgerToggle = !this.burgerToggle
-    }
-  },
-  mounted(){
-
-  },
-  computed:{
-    loggedIN(){
-      // console.log(this.$store.getters.isLoggedIn)
-      return this.$store.getters.isLoggedIn
+  methods: {
+    hideShow() {
+      this.burgerToggle = !this.burgerToggle;
     },
-    userLevel(){
-      return this.$store.getters.getUserLevel
-    }
-  }
-}
+  },
+  mounted() {},
+  computed: {
+    loggedIN() {
+      // console.log(this.$store.getters.isLoggedIn)
+      return this.$store.getters.isLoggedIn;
+    },
+    userLevel() {
+      return this.$store.getters.getUserLevel;
+    },
+  },
+};
 </script>
 
 <style>
 div#app {
   min-width: 350px;
 }
-div#app *{
+div#app * {
   --green-color: #3bbd58;
   --black-color: #292929;
 }
 #app {
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,19 +91,19 @@ div#app *{
   /* margin: 0; */
   /* padding: 0; */
 }
-h1, h2, h3, h4, h5, h6, p, span, div, nav, button{
+h1, h2, h3, h4, h5, h6, p, span, div, nav, button {
   color: #000;
   text-decoration: none;
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
 }
-h1{
-  font-family: 'Lora', serif;
+h1 {
+  font-family: "Lora", serif;
 }
-#nav.navbar{
+#nav.navbar {
   height: 3em;
   line-height: 3em;
   font-size: 1.5em;
-  background: #3bbd58;;
+  background: #3bbd58;
 }
 
 #nav a {
@@ -112,34 +118,45 @@ h1{
 #app main {
   min-height: 80vh;
 }
-#logs{
+#logs {
   position: fixed;
   top: 0;
   left: 0;
-  border: 1px solid #292929;
+  z-index: 5;
+  width: 88px;
+  height: 83px;
+  line-height: 51px;
   padding: 15px 5px 15px 5px;
-  border-radius: 180px;
-  /* background: #3bbd58; */
   background: #292929;
 }
 #logs a {
   color: #3bbd58;
 }
-#burger-box{
+#burger-box {
+  cursor: pointer;
   background: var(--green-color);
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
+#close {
+  cursor: pointer;
+  font-family: cursive;
+  font-size: 3em;
+  font-weight: bolder;
+}
 @media screen and (min-width: 460px) {
-  #burger-box{
+  #burger-box {
     display: none;
+  }
+  #logs {
+    height: 72px;
+    line-height: 41px;
   }
 }
 
 @media screen and (max-width: 460px) {
-  #nav{
+  #nav {
     display: none;
   }
 }
